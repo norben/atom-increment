@@ -1,0 +1,36 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus
+# for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Atom increment'
+      'submenu': [
+        {
+          'label': 'Increment Number'
+          'command': 'atom-increment:incNumber'
+        }
+        {
+          'label': 'Increment String'
+          'command': 'atom-increment:incString'
+        }
+      ]
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Atom Increment'
+      'submenu': [
+        {
+          'label': 'Increment Number'
+          'command': 'atom-increment:incNumber'
+        }
+        {
+          'label': 'Increment String'
+          'command': 'atom-increment:incString'
+        }
+      ]
+    ]
+  }
+]

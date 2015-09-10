@@ -29,4 +29,4 @@ There are also general settings :
 The number of generated elements will only depend on your selections / multiple cursors.  
 Please note that you might need to refresh your Atom application for your settings changes to take effect.
 
-![A screenshot of settings](images/settings.png)
+![A screenshot of settings](https://raw.githubusercontent.com/norben/atom-increment/4465dd98e554ae09fee57719300757bc8bb8976d/images/settings.png)

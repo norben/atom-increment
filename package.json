@@ -1,7 +1,7 @@
 {
   "name": "atom-increment",
   "main": "./lib/atom-increment",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A community package for the Atom text editor which creates a sequence of numbers or strings using selections or multiple cursors.",
   "keywords": [],
   "activationCommands": {

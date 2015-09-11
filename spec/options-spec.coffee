@@ -14,7 +14,7 @@ describe "Atom Increment Package Tests - options", ->
 
     it "--> verifies 'orderByClick' default value is 'false'", ->
       expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
-      atom.commands.dispatch workspaceElement, 'atom-increment:activate'
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
       waitsForPromise ->
         activationPromise
       runs ->
@@ -23,7 +23,7 @@ describe "Atom Increment Package Tests - options", ->
 
     it "--> verifies 'incSize' default value is '1'", ->
       expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
-      atom.commands.dispatch workspaceElement, 'atom-increment:activate'
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
       waitsForPromise ->
         activationPromise
       runs ->
@@ -32,7 +32,7 @@ describe "Atom Increment Package Tests - options", ->
 
     it "--> verifies 'incValue' default value is '0'", ->
       expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
-      atom.commands.dispatch workspaceElement, 'atom-increment:activate'
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
       waitsForPromise ->
         activationPromise
       runs ->
@@ -41,7 +41,7 @@ describe "Atom Increment Package Tests - options", ->
 
     it "--> verifies 'stringsOfSameSize' default value is 'true'", ->
       expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
-      atom.commands.dispatch workspaceElement, 'atom-increment:activate'
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
       waitsForPromise ->
         activationPromise
       runs ->
@@ -50,7 +50,7 @@ describe "Atom Increment Package Tests - options", ->
 
     it "--> verifies 'stringsUpperCase' default value is 'false'", ->
       expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
-      atom.commands.dispatch workspaceElement, 'atom-increment:activate'
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
       waitsForPromise ->
         activationPromise
       runs ->
@@ -59,7 +59,7 @@ describe "Atom Increment Package Tests - options", ->
 
     it "--> verifies 'stringsLeftToRight' default value is 'false'", ->
       expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
-      atom.commands.dispatch workspaceElement, 'atom-increment:activate'
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
       waitsForPromise ->
         activationPromise
       runs ->
@@ -68,7 +68,7 @@ describe "Atom Increment Package Tests - options", ->
 
     it "--> verifies 'stringsMinimumSize' default value is '3'", ->
       expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
-      atom.commands.dispatch workspaceElement, 'atom-increment:activate'
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
       waitsForPromise ->
         activationPromise
       runs ->

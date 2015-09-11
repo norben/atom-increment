@@ -47,15 +47,10 @@ module.exports = AtomIncrement =
       'atom-increment:incNumber': => @increment('number')
     @subscriptions.add atom.commands.add 'atom-workspace',
       'atom-increment:incString': => @increment('string')
-    @subscriptions.add atom.commands.add 'atom-workspace',
-      'atom-increment:activate': => @fakeActivate()
+
 
   deactivate: ->
     @subscriptions.dispose()
-
-
-  fakeActivate: ->
-    return ""
 
 
   increment: (type) ->

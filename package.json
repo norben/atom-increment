@@ -7,8 +7,7 @@
   "activationCommands": {
     "atom-workspace": [
       "atom-increment:incNumber",
-      "atom-increment:incString",
-      "atom-increment:activate"
+      "atom-increment:incString"
     ]
   },
   "repository": "https://github.com/norben/atom-increment",

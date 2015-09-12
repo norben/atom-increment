@@ -50,6 +50,11 @@ There are also general settings :
 The number of generated elements will only depend on your selections / multiple cursors.  
 
 
+## License
+
+MIT (see [License](https://github.com/norben/atom-increment/blob/master/LICENSE.md))
+
+
 ## Figures
 
 <a name="fig1">Figure 1 : a screenshot of the `atom-increment` package settings</a>

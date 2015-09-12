@@ -3,9 +3,27 @@
 **atom-increment** is a package i wrote for the [Atom text editor](https://atom.io/).  
 It increments values from either a selection, multiple cursors or a combination of both.
 
-You can increment numbers using `ctrl-alt-i`, or strings using `ctrl-alt-j`.
+See [Figure 1](#fig1) for a screenshot.
 
-You can also define settings for both type :
+
+## Usage
+
+You can increment :
+
+* numbers using :
+  * `atom-increment:incNumber` command,
+  * `ctrl-alt-i` keyboard shortcut,
+
+* strings using :
+  * `atom-increment:incString` command,
+  * `ctrl-alt-j` keyboard shortcut.
+
+
+## Settings
+
+Please note that you might need to refresh your Atom application for your settings changes to take effect.
+
+You can define settings for `number` or `string` type :
 
 * Numbers
   * Increment Start Value : default is 0
@@ -22,11 +40,17 @@ If you set `start value` to `10` and `size` to `2`, it will generate : `10 12 14
 
 There are also general settings :
 
-* orderByClick : boolean, default is false
+* orderByClick : boolean which defines the order of a generated sequence, default is false
   * if true, the generated values will follow the click order (when using ctrl+click for multiple cursors for example)  
   * if false, the generated values will follow the top-down order
 
-The number of generated elements will only depend on your selections / multiple cursors.  
-Please note that you might need to refresh your Atom application for your settings changes to take effect.
 
+## Note
+
+The number of generated elements will only depend on your selections / multiple cursors.  
+
+
+## Figures
+
+<a name="fig1">Figure 1 : a screenshot of the `atom-increment` package settings</a>
 ![A screenshot of settings](https://raw.githubusercontent.com/norben/atom-increment/4465dd98e554ae09fee57719300757bc8bb8976d/images/settings.png)

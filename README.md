@@ -28,6 +28,8 @@ You can define settings for `number` or `string` type :
 * Numbers
   * Increment Start Value : default is 0
   * Increment Size : default is 1
+  * Integers of same size : boolean that states if every generated number will be of the same size (in this case, we add trailing '0' if needed), default is false
+  * Integers minimum size : minimum size for every generated number, default is 3
 
 Those default values will generate a sequence like so : `0 1 2 3 4 etc...`  
 If you set `start value` to `10` and `size` to `2`, it will generate : `10 12 14 16 etc...`

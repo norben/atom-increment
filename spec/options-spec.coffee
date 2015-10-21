@@ -75,6 +75,25 @@ describe "Atom Increment Package Tests - options", ->
         expect(atom.packages.isPackageActive("atom-increment")).toBe(true)
         expect(atom.config.get('atom-increment.stringsMinimumSize')).toBe(3)
 
+    it "--> verifies 'integersOfSameSize' default value is 'false'", ->
+      expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
+      waitsForPromise ->
+        activationPromise
+      runs ->
+        expect(atom.packages.isPackageActive("atom-increment")).toBe(true)
+        expect(atom.config.get('atom-increment.integersOfSameSize')).toBe(false)
+
+    it "--> verifies 'integersMinimumSize' default value is '3'", ->
+      expect(atom.packages.isPackageActive("atom-increment")).toBe(false)
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
+      waitsForPromise ->
+        activationPromise
+      runs ->
+        expect(atom.packages.isPackageActive("atom-increment")).toBe(true)
+        expect(atom.config.get('atom-increment.integersMinimumSize')).toBe(3)
+
+
   describe "* tests on package when options are changed", ->
 
     it "--> mod. sequence when 'orderByClick' is set to 'true'", ->
@@ -220,3 +239,32 @@ describe "Atom Increment Package Tests - options", ->
           changeHandler.callCount > 0
         runs ->
           expect(editor.getText()).toEqual "aaa\nbaa\n"
+
+    it "--> mod. sequence when 'integersOfSameSize' & 'integersMinimumSize'
+     are changed ", ->
+      editor = atom.workspace.getActiveTextEditor()
+      editor.insertText("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+      editor.selectAll()
+      changeHandler = jasmine.createSpy('changeHandler')
+      editor.onDidChange(changeHandler)
+      atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
+      waitsForPromise ->
+        activationPromise
+      waitsFor ->
+        changeHandler.callCount > 0
+      runs ->
+        expect(editor.getText()).toEqual "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n"
+        atom.config.set('atom-increment.integersOfSameSize', true)
+        atom.config.set('atom-increment.integersMinimumSize', 2)
+        editor.selectAll()
+        editor.insertText("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+        editor.selectAll()
+        changeHandler = jasmine.createSpy('changeHandler')
+        editor.onDidChange(changeHandler)
+        atom.commands.dispatch workspaceElement, 'atom-increment:incNumber'
+        waitsForPromise ->
+          activationPromise
+        waitsFor ->
+          changeHandler.callCount > 0
+        runs ->
+          expect(editor.getText()).toEqual "00\n01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12\n13\n14\n"

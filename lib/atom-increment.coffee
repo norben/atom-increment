@@ -36,6 +36,16 @@ module.exports = AtomIncrement =
       minimum: 1
       description: 'incString : minimum size of string, only used when
        stringsOfSameSize=true'
+    integersOfSameSize:
+      type: 'boolean'
+      default: false
+      description: 'incNumber : are integer increment the same size or not'
+    integersMinimumSize:
+      type: 'integer'
+      default: 3
+      minimum: 1
+      description: 'incNumber : minimum size of integer, only used when
+       integersOfSameSize=true'
 
 
   activate: ->
@@ -64,6 +74,9 @@ module.exports = AtomIncrement =
         minStringSize = atom.config.get('atom-increment.stringsMinimumSize')
         orderByClick = atom.config.get('atom-increment.orderByClick')
 
+        isIntSameSize = atom.config.get('atom-increment.integersOfSameSize')
+        minIntSize = atom.config.get('atom-increment.integersMinimumSize')
+
         if (type == "number")
           incValue = atom.config.get('atom-increment.incValue')
           incSize = atom.config.get('atom-increment.incSize')
@@ -82,6 +95,10 @@ module.exports = AtomIncrement =
         for i in [0..selectionList.length-1]
           if (type == 'number')
             result = incValue.toString()
+            if (isIntSameSize)
+              if (minIntSize > result.length)
+                for k in [0..minIntSize-result.length-1]
+                  result = '0' + result
           else if (type == 'string')
             result = @convertIntegerToString(incValue.toString(), isUpperCase,
              isFromLeftToRight, minStringSize, isSameSize)
@@ -94,7 +111,12 @@ module.exports = AtomIncrement =
               incValue = incValue + incSize
               if !(j == nbLines-1 && lineList[j] == "")
                 if (type == 'number')
-                  result = result + '\n' + incValue.toString()
+                  result = result + '\n'
+                  if (isIntSameSize)
+                    if (minIntSize > incValue.toString().length)
+                      for k in [0..minIntSize-incValue.toString().length-1]
+                        result = result + '0'
+                  result = result + incValue.toString()
                 else if (type == 'string')
                   result = result + '\n' + @convertIntegerToString(incValue.
                    toString(), isUpperCase, isFromLeftToRight, minStringSize,

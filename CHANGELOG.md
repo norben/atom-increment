@@ -1,3 +1,6 @@
+## 0.3.4
+* adds 'inc same size' feature for numbers
+
 ## 0.3.3
 * removed 'activate' from spec and app file
 
